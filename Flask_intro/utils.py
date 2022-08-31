@@ -18,7 +18,7 @@ def average_height_weight():
     with open('hw.csv', 'r') as f:
         next(f)
         for line in f:
-            ind, height, weight = line.strip().split(',')
+            ind, height, weight = line.split(',')
             user[ind] = [float(height), float(weight)]
     avg_height = round((sum(user[ind][0] for ind in user) * 2.54) / len(user), 2)  # [0] index
     avg_weight = round((sum(user[ind][1] for ind in user) / 2.2046) / len(user), 2)  # [1] index
