@@ -23,8 +23,8 @@ def get_name():
 def average():
     avg_height = average_height_weight()[0]
     avg_weight = average_height_weight()[1]
-    return f'<h2>Average height of all students: <tt>{avg_height}cm</tt>' \
-           f'<br><br>Average weight of all students: <tt>{avg_weight}kg</tt></h2>'
+    return f'<h2>Average height of all students: <tt>{avg_height} cm</tt>' \
+           f'<br><br>Average weight of all students: <tt>{avg_weight} kg</tt></h2>'
 
 
 @app.route('/requirements')
