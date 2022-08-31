@@ -2,6 +2,7 @@ from datetime import datetime, time
 
 
 def current_time():
+    """Returns the current time in a readable format with params for the clock"""
     while True:
         dt = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         if time(8, 0) <= datetime.now().time() <= time(18, 0):
@@ -12,18 +13,20 @@ def current_time():
 
 
 def average_height_weight():
+    """Returns the average height and weight of the users from file"""
     user = {}
     with open('hw.csv', 'r') as f:
         next(f)
         for line in f:
             ind, height, weight = line.strip().split(',')
             user[ind] = [float(height), float(weight)]
-    avg_height = round((sum(user[ind][0] for ind in user) * 2.54) / len(user), 2)
-    avg_weight = round((sum(user[ind][1] for ind in user) / 2.2046) / len(user), 2)
+    avg_height = round((sum(user[ind][0] for ind in user) * 2.54) / len(user), 2)  # [0] index
+    avg_weight = round((sum(user[ind][1] for ind in user) / 2.2046) / len(user), 2)  # [1] index
     return avg_height, avg_weight
 
 
 def show_requirements():
+    """Returns the requirements for the project"""
     req = []
     with open('requirements.txt', 'r') as f:
         for line in f:
